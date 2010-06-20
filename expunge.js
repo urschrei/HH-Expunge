@@ -52,7 +52,8 @@ function kill(users) {
     }
 }
 
-
+// I have no idea what this function is doing in production code, since it doesn't work yet
+// due to querySelectorAll difficulties. Mainly to give you an idea of what's going on, I suppose.
 function newkill(users) {
     var users_arr = users.split(",");
     var goners = document.querySelectorAll("table.threadTable a[href='/profile/" + users_arr.join(".html'], table.threadTable a[href='/profile/") + ".html']");
