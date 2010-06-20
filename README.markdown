@@ -1,5 +1,12 @@
-This is the source code for the **HumHum Ignore User** Safari 5 extension
-All Safari 5 extensions must have a top-level directory name ending in .safariextension, e.g. meerkat.safariextension
+This is the source code for the **HumHum Ignore User** Safari 5 extension.
+When installing, please be aware that the source files must be placed into a directory with a name ending in .safariextension, e.g.:
+ 
+* meerkat.safariextension  **<--- Directory** 
+1. — global.html
+2. — global.js
+3. — expunge.js
+4. — Settings.plist
+5. — Info.plist
 
 *Please note that you will require a Safari developer cert in order to build and install from source*
 
