@@ -1,3 +1,8 @@
+//add a trim method to the string object's prototype
+String.prototype.trim = function() {
+  return this.replace(/^\s+|\s+$/g, "");
+};
+
 safari.self.addEventListener("message", getMessage, false);
 // event listener for incoming requested messages from global.js
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
@@ -13,6 +18,7 @@ function storeBlacklist(bl) {
     if ("user1,user2,user3" != bl) {
         console.log("Writing user-defined blacklist values to local storage");
         console.log("Values: " + bl);
+		bl = bl.trim(); //strip leading and trailing whitespace
         localStorage.setItem("blacklist", bl);
         //store the new item
         kill(bl);
@@ -22,6 +28,7 @@ function storeBlacklist(bl) {
         //stored values exist, so use those instead, and restore them to the user preferences
         console.log("Retrieving local storage blacklist values: ");
         kl = localStorage.getItem("blacklist");
+		kl = kl.trim(); //strip leading and trailing whitespace
         console.log("Retrieved values: " + kl + " … restoring your preferences");
         safari.self.tab.dispatchMessage("setSettingValue", "blacklist?" + kl);
         //using ? to delimit in order to avoid splitting the values
