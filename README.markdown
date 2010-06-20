@@ -10,7 +10,7 @@ In order to obtain a cert, you must:
 2. request a Safari extension certificate (free), [here](https://developer.apple.com/safari/certificates/index.action "Apple Developer link")
 3. install the cert using Keychain Assistant, by following the instructions above
 
-An introduction to Safari 5 extensions, and a comprehensive developer guide is [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009977-CH1-SW1 "developer.apple.com link")
+An introduction to Safari 5 extensions, and a comprehensive developer guide can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009977-CH1-SW1 "developer.apple.com link")
 
 Before using these source files with the Safari Extension Builder, please be aware that they must be placed into a directory with a name ending in .safariextension, e.g.:
 
@@ -22,7 +22,7 @@ Before using these source files with the Safari Extension Builder, please be awa
 5. — `Info.plist`
 
 An explanation of the extension "parts list" and architecture can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/ExtensionsOverview/ExtensionsOverview.html#//apple_ref/doc/uid/TP40009977-CH15-SW3 "Apple Developer Link")  
-The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found in the [developer documentation](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/UpdatingExtensions/UpdatingExtensions.html#//apple_ref/doc/uid/TP40009977-CH12-SW1 "Apple Developer Doc")
+The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/UpdatingExtensions/UpdatingExtensions.html#//apple_ref/doc/uid/TP40009977-CH12-SW1 "Apple Developer Doc")
 
 # What this extension does #
 
