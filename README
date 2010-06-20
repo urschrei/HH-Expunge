@@ -1,0 +1,12 @@
+This is the source code for the HumHum Ignore User Safari 5 extension
+All Safari 5 extensions must have a top-level directory name ending in .safariextension, e.g. meerkat.safariextension
+
+* Please note that you will require a Safari developer cert in order to build and install from source *
+
+If you have not done so, you must first sign up to the developer program (free) here:
+http://developer.apple.com/programs/start/safari/create.php
+Then request a Safari extension certificate (free), here:
+https://developer.apple.com/safari/certificates/index.action
+
+An introduction to extensions, and a comprehensive developer guide is here:
+http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009977-CH1-SW1
