@@ -10,11 +10,11 @@
        <key>Team Identifier</key>
        <string>BBFMDP3YE5</string>
        <key>CFBundleVersion</key>
-       <string>1.3</string>
+       <string>1.3.1</string>
        <key>CFBundleShortVersionString</key>
-       <string>1.3</string>
+       <string>1.3.1</string>
        <key>URL</key>
-       <string>http://dl.dropbox.com/u/21382/safariextensions/hh_expunge_safari.safariextz</string>
+       <string>http://github.com/downloads/urschrei/HH-Expunge/hh_expunge.safariextz</string>
      </dict>
    </array>
 </dict>
