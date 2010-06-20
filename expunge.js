@@ -1,7 +1,7 @@
 safari.self.addEventListener("message", getMessage, false);
-// event listener for requested messages
+// event listener for incoming requested messages from global.js
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
-// ask for value
+// ask for value from global.js, since only it can interact with the Safari object directly
 function getMessage(msgEvent) {
 
     if (msgEvent.name == "settingValueIs")
