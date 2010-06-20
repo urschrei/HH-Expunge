@@ -21,7 +21,8 @@ Before using these source files with the Safari Extension Builder, please be awa
 4. — `Settings.plist`
 5. — `Info.plist`
 
-The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found in the developer documentation.
+An explanation of the extension "parts list" and architecture can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/ExtensionsOverview/ExtensionsOverview.html#//apple_ref/doc/uid/TP40009977-CH15-SW3 "Apple Developer Link")  
+The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found in the [developer documentation](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/UpdatingExtensions/UpdatingExtensions.html#//apple_ref/doc/uid/TP40009977-CH12-SW1 "Apple Developer Doc")
 
 # What this extension does #
 
