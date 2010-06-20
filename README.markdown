@@ -19,5 +19,6 @@ Before using these source files with the Safari Extension Builder, please be awa
 
 # What this extension does #
 
-It's quite simple, really: when a thread is loaded, the expunge.js script requests the contents of the "blacklist" user setting field from the global.js script, splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread. As of **v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the global.js script) when the extension is updated, so your settings will persist.
+It's quite simple, really: when a thread is loaded, the expunge.js script requests the contents of the "blacklist" user setting field from the global.js script, splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread.  
+As of **v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the global.js script) when the extension is updated, so your settings will persist.
 
