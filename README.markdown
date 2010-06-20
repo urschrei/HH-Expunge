@@ -15,7 +15,7 @@ An introduction to Safari 5 extensions, and a comprehensive developer guide is [
 
 Before using these source files with the Safari Extension Builder, please be aware that they must be placed into a directory with a name ending in .safariextension, e.g.:
 
-* meerkat.safariextension  **<--- Directory** 
+* meerkat.safariextension  **⬅ Directory** 
 1. — `global.html`
 2. — `global.js`
 3. — `expunge.js`
