@@ -7,7 +7,7 @@ This is the source code for the **HumHum Ignore User** Safari 5 extension.  If y
 
 In order to obtain a cert, you must:
 
-1. sign up to the developer program (free) [here](http://developer.apple.com/programs/start/safari/create.php "Apple Developer link")
+1. sign up to the developer program (free), [here](http://developer.apple.com/programs/start/safari/create.php "Apple Developer link")
 2. request a Safari extension certificate (free), [here](https://developer.apple.com/safari/certificates/index.action "Apple Developer link")
 3. install the cert using Keychain Assistant, by following the instructions above
 
