@@ -2,7 +2,6 @@ safari.self.addEventListener("message", getMessage, false);
 // event listener for requested messages
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
 // ask for value
-
 function getMessage(msgEvent) {
 
     if (msgEvent.name == "settingValueIs")
@@ -18,8 +17,9 @@ function storeBlacklist(bl) {
         //store the new item
         kill(bl);
     }
-    else if (localStorage.getItem("blacklist")) {
-        //stored item exists, so use it instead
+    else // default values present: extension is in use for the first time, or post-update
+    if (localStorage.getItem("blacklist")) {
+        //stored values exist, so use those instead, and restore them to the user preferences
         console.log("Retrieving local storage blacklist values: ");
         kl = localStorage.getItem("blacklist");
         console.log("Retrieved values: " + kl + " … restoring your preferences");
@@ -27,11 +27,9 @@ function storeBlacklist(bl) {
         //using ? to delimit in order to avoid splitting the values
         kill(kl);
     }
-    else
-	alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences, and add some.");
-    console.log("Default values in use, and no local storage detected … exiting");
-    return;
-    //no value exists, and the default is in use, so do nothing
+    else //no stored values were found, and the default is in use, so alert the user
+    alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences, and add some.");
+    
 }
 
 
