@@ -1,6 +1,6 @@
 This is the source code for the **HumHum Ignore User** Safari 5 extension.
 
-*Please note that you will require a Safari developer cert in order to build and install from source using the Safari Extension Builder, and that it must be installed in Safari before you can proceed.*
+*Please note that you will require a Safari developer cert in order to build and install from source using the Safari Extension Builder, and that **it must be installed in Safari before you can proceed**.*
 
 If you have not done so, you must first sign up to the developer program (free) [here](http://developer.apple.com/programs/start/safari/create.php, "Apple Developer link")
 
