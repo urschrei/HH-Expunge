@@ -11,7 +11,7 @@ In order to obtain a cert, you must:
 2. request a Safari extension certificate (free), [here](https://developer.apple.com/safari/certificates/index.action "Apple Developer link")
 3. install the cert using keychain assistant, by following the instructions above
 
-An introduction to Safari 5 extensions, and a comprehensive developer guide is [here](http://bit.ly/a80vlI "developer.apple.com link")
+An introduction to Safari 5 extensions, and a comprehensive developer guide is [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009977-CH1-SW1 "developer.apple.com link")
 
 Before using these source files with the Safari Extension Builder, please be aware that they must be placed into a directory with a name ending in .safariextension, e.g.:
 
