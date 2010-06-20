@@ -8,5 +8,4 @@ http://developer.apple.com/programs/start/safari/create.php
 Then request a Safari extension certificate (free), here:
 https://developer.apple.com/safari/certificates/index.action
 
-An introduction to extensions, and a comprehensive developer guide is here:
-http://bit.ly/a80vlI (developer.apple.com link)
+An introduction to extensions, and a comprehensive developer guide is [here](http://bit.ly/a80vlI "developer.apple.com link")
