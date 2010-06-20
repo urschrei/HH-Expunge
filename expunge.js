@@ -1,7 +1,8 @@
+safari.self.addEventListener("message", getMessage, false);
+// event listener for requested messages
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
 // ask for value
-safari.self.addEventListener("message", getMessage, false);
-// wait for reply
+
 function getMessage(msgEvent) {
 
     if (msgEvent.name == "settingValueIs")
