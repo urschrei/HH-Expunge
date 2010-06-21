@@ -1,6 +1,6 @@
 //add a trim method to the string object's prototype
 String.prototype.trim = function() {
-  return this.replace(/^\s+|\s+$/g, "");
+    return this.replace(/^\s+|\s+$/g, "");
 };
 
 safari.self.addEventListener("message", getMessage, false);
@@ -18,26 +18,39 @@ function storeBlacklist(bl) {
     if ("user1,user2,user3" != bl) {
         console.log("Writing user-defined blacklist values to local storage");
         console.log("Values: " + bl);
-		bl = bl.trim(); //strip leading and trailing whitespace
-		localStorage.removeItem("blacklist");
-        localStorage.setItem("blacklist", bl);
-        //store the new item
+        bl = bl.trim();
+        //strip leading and trailing whitespace
+        localStorage.removeItem("blacklist");
+        // error handler
+        try {
+            localStorage.setItem("blacklist", bl);
+        } catch(e) {
+            if (e == QUOTA_EXCEEDED_ERR) {
+				console.log("Caught local storage error … clearing it out and trying again");
+                localStorage.clear(); // clear all HH local storage
+                localStorage.setItem("blacklist", bl);
+            }
+        }
+
         kill(bl);
     }
-    else // default values present: extension is in use for the first time, or post-update
+    else
+    // default values present: extension is in use for the first time, or post-update
     if (localStorage.getItem("blacklist")) {
         //stored values exist, so use those instead, and restore them to the user preferences
         console.log("Retrieving local storage blacklist values: ");
         kl = localStorage.getItem("blacklist");
-		kl = kl.trim(); //strip leading and trailing whitespace
+        kl = kl.trim();
+        //strip leading and trailing whitespace
         console.log("Retrieved values: " + kl + " … restoring your preferences");
         safari.self.tab.dispatchMessage("setSettingValue", "blacklist?" + kl);
         //using ? to delimit in order to avoid splitting the values
         kill(kl);
     }
-    else //no stored values were found, and the default is in use, so alert the user
+    else
+    //no stored values were found, and the default is in use, so alert the user
     alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences, and add some.");
-    
+
 }
 
 
