@@ -1,6 +1,6 @@
 # General #
 
-This is the source code for the **HumHum Ignore User** Safari 5 extension.  If you're just looking for the binary in order to install and use it, please go to the [downloads page](http://github.com/urschrei/HH-Expunge/downloads "Downloads").
+This is the source code for the **HumHum Ignore User** Safari 5 extension.  If you're just looking for the binary in order to install and use it, go to the [downloads page](http://github.com/urschrei/HH-Expunge/downloads "Downloads").
 
 *Please note that you will require a Safari Developer cert in order to build the extension from source using the Safari Extension Builder, and that **it must be installed in Safari before you can proceed**. This does not apply if you just want to install the extension (binary).*
 
