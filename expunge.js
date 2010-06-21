@@ -19,6 +19,7 @@ function storeBlacklist(bl) {
         console.log("Writing user-defined blacklist values to local storage");
         console.log("Values: " + bl);
 		bl = bl.trim(); //strip leading and trailing whitespace
+		localStorage.removeItem("blacklist");
         localStorage.setItem("blacklist", bl);
         //store the new item
         kill(bl);
