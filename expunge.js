@@ -21,7 +21,7 @@ function storeBlacklist(bl) {
         bl = bl.trim();
         //strip leading and trailing whitespace
         try {
-            localStorage.clear();
+            localStorage.clear(); //clear all local storage, since we're currently only using one field
         } catch(e) {
             console.log("Couldn't remove local storage item. Argh.");
             return null;
