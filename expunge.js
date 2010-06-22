@@ -27,7 +27,7 @@ function storeBlacklist(bl) {
             return null;
         }
         try {
-            localStorage.setItem("blacklist", bl);
+            localStorage.setItem("ignorelist", bl);
         } catch(e) {
             console.log("Couldn't write local storage item. This is pretty bad. Please uninstall the extension, and restart Safari before trying again");
             localStorage.clear();
@@ -38,10 +38,10 @@ function storeBlacklist(bl) {
     }
     else
     // default values present: extension is in use for the first time, or post-update
-    if (localStorage.getItem("blacklist")) {
+    if (localStorage.getItem("ignorelist")) {
         //stored values exist, so use those instead, and restore them to the user preferences
         console.log("Retrieving local storage blacklist values: ");
-        kl = localStorage.getItem("blacklist");
+        kl = localStorage.getItem("ignorelist");
         kl = kl.trim();
         //strip leading and trailing whitespace
         console.log("Retrieved values: " + kl + " … restoring your preferences");
