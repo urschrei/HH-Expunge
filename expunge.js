@@ -20,16 +20,22 @@ function storeBlacklist(bl) {
         console.log("Values: " + bl);
         bl = bl.trim();
         //strip leading and trailing whitespace
-        localStorage.removeItem("blacklist");
-        // error handler
+        try {
+            localStorage.clear();
+        } catch(e) {
+            console.log("Couldn't remove local storage item. Argh.");
+            return null;
+        }
         try {
             localStorage.setItem("blacklist", bl);
         } catch(e) {
-            if (e == QUOTA_EXCEEDED_ERR) {
-				console.log("Caught local storage error … clearing it out and trying again");
-                localStorage.clear(); // clear all HH local storage
-                localStorage.setItem("blacklist", bl);
-            }
+            //if (e == "QUOTA_EXCEEDED_ERR") {
+            console.log("Caught local storage error … clearing it out and trying again");
+            localStorage.clear();
+            // clear all HH local storage
+            return null;
+            //localStorage.setItem("blacklist", bl);
+            //}
         }
 
         kill(bl);
