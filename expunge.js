@@ -29,13 +29,9 @@ function storeBlacklist(bl) {
         try {
             localStorage.setItem("blacklist", bl);
         } catch(e) {
-            //if (e == "QUOTA_EXCEEDED_ERR") {
-            console.log("Caught local storage error … clearing it out and trying again");
+            console.log("Couldn't write local storage item. This is pretty bad. Please uninstall the extension, and restart Safari before trying again");
             localStorage.clear();
-            // clear all HH local storage
             return null;
-            //localStorage.setItem("blacklist", bl);
-            //}
         }
 
         kill(bl);
