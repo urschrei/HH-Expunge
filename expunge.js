@@ -31,7 +31,7 @@ function storeBlacklist(bl) {
         } catch(e) {
             console.log("Couldn't write local storage item. This is pretty bad. Please uninstall the extension, and restart Safari before trying again");
             localStorage.clear();
-            return null;
+            kill(bl);
         }
 
         kill(bl);
