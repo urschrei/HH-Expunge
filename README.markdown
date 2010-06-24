@@ -32,3 +32,14 @@ As of **v1.3**, the "blacklist" setting is written to local storage upon every p
 
 ![black logo](http://dl.dropbox.com/u/21382/photos/hb.gif "black HH logo")
 
+## Addendum ##
+
+I'm pretty sure there's a bug in the current implementation of Safari 5's HTML 5 local storage functionality. It's not a show-stopper – it's preventing the list of ignored users being written to offline storage after a certain number of writes – but it's sufficiently irritating for me to detail here. The error console is your friend, if you're wondering what's going on.
+
+
+
+
+
+
+
+
