@@ -20,16 +20,12 @@ function storeBlacklist(bl) {
         console.log("Values: " + bl);
         bl = bl.trim();
         //strip leading and trailing whitespace
-        try {
-            localStorage.clear(); //clear all local storage, since we're currently only using one field
-        } catch(e) {
-            console.log("Couldn't remove local storage item. Argh.");
-            return null;
-        }
+        localStorage.clear();
+        //clear all local storage, since we're currently only using one field
         try {
             localStorage.setItem("ignorelist", bl);
         } catch(e) {
-            console.log("Couldn't write local storage item. This is pretty bad. Please uninstall the extension, and restart Safari before trying again");
+            console.log("Couldn't write local storage item. I think this is a bug, and am proceeding with ignored-user comment removal anyway.");
             localStorage.clear();
             kill(bl);
         }
