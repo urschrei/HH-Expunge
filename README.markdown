@@ -15,12 +15,12 @@ An introduction to Safari 5 extensions, and a comprehensive developer guide can 
 Before using these source files with the Safari Extension Builder, please be aware that they must be placed into a directory with a name ending in .safariextension, e.g.:
 
 * meerkat.safariextension  **⬅ Directory** 
-1. — `global.html`
-2. — `global.js`
-3. — `expunge.js`
-4. — `Settings.plist`
-5. — `Info.plist`
-6. — `Icon.png`
+	* `global.html`
+	* `global.js`
+	* `expunge.js`
+	* `Settings.plist`
+	* `Info.plist`
+	* `Icon.png`
 
 An explanation of the extension "parts list" and architecture can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/ExtensionsOverview/ExtensionsOverview.html#//apple_ref/doc/uid/TP40009977-CH15-SW3 "Apple Developer Link")  
 The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/UpdatingExtensions/UpdatingExtensions.html#//apple_ref/doc/uid/TP40009977-CH12-SW1 "Apple Developer Doc"). I have no idea whether it works, or what the update check interval is, however.  
