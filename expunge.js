@@ -51,7 +51,6 @@ function storeBlacklist(bl) {
 
 }
 
-
 function kill(users) {
     var allTables,
     thisTable,
@@ -68,4 +67,3 @@ function kill(users) {
         //not hidden, expunged. That's right.
     }
 }
-
