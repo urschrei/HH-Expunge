@@ -46,6 +46,6 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://github.com/urschrei/HH-Expunge/blob/master/update.plist://dl.dropbox.com/u/21382/safariextensions/update.plist</string>
+	<string>http://github.com/urschrei/HH-Expunge/blob/master/update.plist</string>
 </dict>
 </plist>
