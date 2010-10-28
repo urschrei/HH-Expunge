@@ -57,7 +57,7 @@ function kill(users) {
 	var users_arr = users.split(",");
 	// to-do: strip leading and trailing whitespace
 	var cleanList = "'/profile/" + users_arr.join(".html' or @href='/profile/") + ".html'";
-	matchTable = "//div[@id='authorHoldAuthor']/a[@href=" + cleanList + "]/ancestor::table[@class='threadTable']";
+	matchTable = "//div[translate(@id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='authorHoldAuthor']/a[@href=" + cleanList + "]/ancestor::table[@class='threadTable']";
 	allTables = document.evaluate(matchTable, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 	console.log("Number of comments expunged: " + allTables.snapshotLength);
 	for (var j = 0; j < allTables.snapshotLength; j++) {
