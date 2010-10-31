@@ -9,11 +9,19 @@ var user="";
 //=========================================================================
 //== add new users to be ignored here =====================================
 //=========================================================================
-var users = ['cornboy', 'noseworthy', 'hotspanners'];
+var users = ['user1', 'user2', 'user3'];
+for (i = 0; i < users.length; i++) {
+    if (users[i] == "Giant Hamburger") {
+        //you must be joking
+        users_arr.splice(i,1);
+    }
+    users[i] = users[i].replace(" ","%2B");
+    
+}
 //=========================================================================
-var cleanList = "'/profile/" + users.join(".html' or @href='/profile/") + ".html'";
+var cleanList = "'/profile/" + users.join(".html' or translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='/profile/") + ".html'";
 // now grab the parent table for each instance of each matched user
-matchTable = "//div[@id='authorHoldAuthor']/a[@href=" + cleanList + "]/ancestor::table[@class='threadTable']";
+matchTable = "//div[@id='authorHoldAuthor']/a[translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=" + cleanList + "]/ancestor::table[@class='threadTable']";
 allTables = document.evaluate(matchTable, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 for (var j = 0; j < allTables.snapshotLength; j++) {
 	thisTable = allTables.snapshotItem(j);
