@@ -55,9 +55,17 @@ function storeBlacklist(bl) {
 function kill(users) {
 	var allTables, thisTable, matchTable;
 	var users_arr = users.split(",");
+    for (i = 0; i < users_arr.length; i++) {
+        if (users_arr[i] == "Giant Hamburger") {
+            //you must be joking
+            users_arr.splice(i,1);
+        }
+        users_arr[i] = users_arr[i].replace(" ","%2B");
+        
+    }
 	// to-do: strip leading and trailing whitespace
 	var cleanList = "'/profile/" + users_arr.join(".html' or @href='/profile/") + ".html'";
-	matchTable = "//div[translate(@id,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='authorHoldAuthor']/a[@href=" + cleanList + "]/ancestor::table[@class='threadTable']";
+	matchTable = "//div[@id='authorHoldAuthor']/a[translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=" + cleanList + "]/ancestor::table[@class='threadTable']";
 	allTables = document.evaluate(matchTable, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 	console.log("Number of comments expunged: " + allTables.snapshotLength);
 	for (var j = 0; j < allTables.snapshotLength; j++) {
