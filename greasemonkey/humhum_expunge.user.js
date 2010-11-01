@@ -11,12 +11,11 @@ var user="";
 //=========================================================================
 var users = ['user1', 'user2', 'user3'];
 for (i = 0; i < users.length; i++) {
-    if (users[i] == "Giant Hamburger") {
+    users[i] = users[i].replace(" ","%2b").toLowerCase();
+    if (users[i] == "giant%2bhamburger") {
         //you must be joking
         users_arr.splice(i,1);
     }
-    users[i] = users[i].replace(" ","%2b").toLowerCase();
-    
 }
 //=========================================================================
 var cleanList = "'/profile/" + users.join(

@@ -59,13 +59,12 @@ function kill(users) {
 	var allTables, thisTable, matchTable;
 	var users_arr = users.split(",");
     for (i = 0; i < users_arr.length; i++) {
-        if (users_arr[i] == "Giant Hamburger") {
+        //force the user input to lowercase
+        users_arr[i] = users_arr[i].replace(" ","%2b").toLowerCase();
+        if (users_arr[i] == "giant%2bhamburger") {
             //you must be joking
             users_arr.splice(i,1);
         }
-        //force the user input to lowercase
-        users_arr[i] = users_arr[i].replace(" ","%2b").toLowerCase();
-        
     }
 	// to-do: strip leading and trailing whitespace
 	var cleanList = "'/profile/" + users_arr.join(
