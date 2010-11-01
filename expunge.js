@@ -46,7 +46,8 @@ function storeBlacklist(bl) {
 		kill(kl);
 	} else
 	//no stored values were found, and the default is in use, so alert the user
-	alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences, and add some.");
+	alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences,\
+	and add some (use lowercase for user names).");
 
 }
 
@@ -60,7 +61,7 @@ function kill(users) {
             //you must be joking
             users_arr.splice(i,1);
         }
-        users_arr[i] = users_arr[i].replace(" ","%2B");
+        users_arr[i] = users_arr[i].replace(" ","%2b");
         
     }
 	// to-do: strip leading and trailing whitespace

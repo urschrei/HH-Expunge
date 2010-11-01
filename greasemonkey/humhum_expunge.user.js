@@ -15,7 +15,7 @@ for (i = 0; i < users.length; i++) {
         //you must be joking
         users_arr.splice(i,1);
     }
-    users[i] = users[i].replace(" ","%2B");
+    users[i] = users[i].replace(" ","%2b");
     
 }
 //=========================================================================

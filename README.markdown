@@ -30,6 +30,8 @@ The `update.plist` file is an update manifest which triggers Safari's Extension 
 When a thread is loaded, the `expunge.js` script requests the contents of the "blacklist" user setting field by passing a message to the `global.js` script (loaded by `global.html`), splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread.  
 As of **v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the `global.js` script) when the extension is updated, so your settings will persist. In addition, various actions are written to the Javascript console.
 
+**please add usernames in lowercase**
+
 ![black logo](http://dl.dropbox.com/u/21382/photos/hb.gif "black HH logo")
 
 ## Addendum ##
