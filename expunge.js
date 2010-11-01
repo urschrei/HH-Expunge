@@ -63,7 +63,8 @@ function kill(users) {
             //you must be joking
             users_arr.splice(i,1);
         }
-        users_arr[i] = users_arr[i].replace(" ","%2b");
+        //force the user input to lowercase
+        users_arr[i] = users_arr[i].replace(" ","%2b").toLowerCase();
         
     }
 	// to-do: strip leading and trailing whitespace
