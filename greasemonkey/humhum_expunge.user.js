@@ -19,10 +19,18 @@ for (i = 0; i < users.length; i++) {
     
 }
 //=========================================================================
-var cleanList = "'/profile/" + users.join(".html' or translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='/profile/") + ".html'";
+var cleanList = "'/profile/" + users.join(
+    ".html' or translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ',\
+    'abcdefghijklmnopqrstuvwxyz')='/profile/") + ".html'";
 // now grab the parent table for each instance of each matched user
-matchTable = "//div[@id='authorHoldAuthor']/a[translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=" + cleanList + "]/ancestor::table[@class='threadTable']";
-allTables = document.evaluate(matchTable, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+matchTable = "//div[@id='authorHoldAuthor']/a[translate\
+(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')="
++ cleanList + "]/ancestor::table[@class='threadTable']";
+allTables = document.evaluate(
+    matchTable,
+    document,
+    null,
+    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 for (var j = 0; j < allTables.snapshotLength; j++) {
 	thisTable = allTables.snapshotItem(j);
 	thisTable.parentNode.removeChild(thisTable); //not hidden, expunged. That's right.

@@ -26,7 +26,8 @@ function storeBlacklist(bl) {
 		try {
 			localStorage.setItem("ignorelist", bl);
 		} catch(e) {
-			console.log("Couldn't write local storage item. I think this is a bug, and am proceeding with ignored-user comment removal anyway.");
+			console.log("Couldn't write local storage item. I think this\
+			is a bug, and am proceeding with ignored-user comment removal anyway.");
 			localStorage.clear();
 			kill(bl);
 		}
@@ -35,7 +36,7 @@ function storeBlacklist(bl) {
 	} else
 	// default values present: extension is in use for the first time, or post-update
 	if (localStorage.getItem("ignorelist")) {
-		//stored values exist, so use those instead, and restore them to the user preferences
+		//stored values exist, so use those, and restore them to the user prefs
 		console.log("Retrieving local storage blacklist values: ");
 		kl = localStorage.getItem("ignorelist");
 		kl = kl.trim();
@@ -46,7 +47,8 @@ function storeBlacklist(bl) {
 		kill(kl);
 	} else
 	//no stored values were found, and the default is in use, so alert the user
-	alert("You haven't defined any users to ignore, please go to the HumHum User Ignore extension preferences,\
+	alert("You haven't defined any users to ignore, please go to the HumHum\
+	User Ignore extension preferences,\
 	and add some (use lowercase for user names).");
 
 }
@@ -65,9 +67,22 @@ function kill(users) {
         
     }
 	// to-do: strip leading and trailing whitespace
-	var cleanList = "'/profile/" + users_arr.join(".html' or translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='/profile/") + ".html'";
-	matchTable = "//div[@id='authorHoldAuthor']/a[translate(@href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=" + cleanList + "]/ancestor::table[@class='threadTable']";
-	allTables = document.evaluate(matchTable, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+	var cleanList = "'/profile/" + users_arr.join(
+	    ".html' or translate(@href,\
+	    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',\
+	    'abcdefghijklmnopqrstuvwxyz')='/profile/"
+	        )
+	+ ".html'";
+	matchTable = "//div[@id='authorHoldAuthor']/a[translate(\
+	    @href,'ABCDEFGHIJKLMNOPQRSTUVWXYZ',\
+	    'abcdefghijklmnopqrstuvwxyz')=\
+	    " + cleanList + "]/ancestor::table[@class='threadTable']";
+	allTables = document.evaluate(
+	    matchTable,
+	    document,
+	    null,
+	    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+	    null);
 	console.log("Number of comments expunged: " + allTables.snapshotLength);
 	for (var j = 0; j < allTables.snapshotLength; j++) {
 		thisTable = allTables.snapshotItem(j);
