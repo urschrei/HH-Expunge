@@ -1,7 +1,8 @@
 {
   "name": "HH-Expunge",
   "version": "1.0",
-  "description": "Expunges users whose posts you don't wish to see",
+  "icons": { "48": "Icon.png"},
+  "description": "Expunges HumHum posts from users you wish to ignore",
   "background_page": "background.html",
   "content_scripts": [
   {
