@@ -9,7 +9,7 @@
 	}
 	function restore_users() {
 		var users = localStorage["expunge_users"];
-		// now set the contents of the named form field to "users"
+		store_users.users.value = users;
 	}
 	</script>
 	<body onload="restore_users()">
