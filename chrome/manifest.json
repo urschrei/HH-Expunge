@@ -1,13 +1,22 @@
 {
   "name": "HH-Expunge",
   "version": "1.0",
-"update_url": "http://github.com/urschrei/HH-expunge/blob/master/chrome/updates.xml",
   "description": "Expunges users whose posts you don't wish to see",
-  "permissions": ["http://www.humhum.be/*", "http://humhum.be/*"],
-	"content_scripts": [
-    {
-      "matches": ["http://humhum.be/*/*.html", "http://www.humhum.be/*/*.html"],
-      "js" : ["chrome_script.js"]
-    }
-]
+  "background_page": "background.html",
+  "content_scripts": [
+  {
+    "matches": [
+    "http://humhum.be/*/*.html*",
+    "http://www.humhum.be/*/*.html*"
+    ],
+    "js" : ["chrome_script.js"]
+  }
+  ],
+  "options_page": "options.html",
+  "permissions": [
+  "tabs",
+  "http://www.humhum.be/*",
+  "http://humhum.be/*"
+  ],
+  "update_url": "http://github.com/urschrei/HH-expunge/blob/master/chrome/updates.xml"
 }

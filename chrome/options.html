@@ -1,0 +1,24 @@
+<html>
+<head><title>HumHum User Expunge Options</title></head>
+	<script type="text/javascript">
+	// save value of the "users" field to local storage
+	function save_users(form) {
+		var usrs = form.users.value;
+		localStorage["expunge_users"] = usrs;
+		alert("Saved the following users:" + usrs);
+	}
+	function restore_users() {
+		var users = localStorage["expunge_users"];
+		// now set the contents of the named form field to "users"
+	}
+	</script>
+	<body onload="restore_users()">
+		<div id="content">
+			<form name="store_users">
+				<label for="users">Users' names</label>
+				<input name="users" placeholder="user1,user2,user3…" required autofocus>
+				<input type="button" value="save" onClick="save_users(this.form)">
+				</form>
+				</div>
+				</body>
+				</html>
