@@ -4,10 +4,13 @@ String.prototype.trim = function() {
 };
 
 chrome.extension.sendRequest({localstorage: "expunge_users"}, function(response) {
-    console.log("Asking for users…");
+    console.log("Asking for list of users…");
     var retrieved = response.expunge_users;
-    console.log("Expunging users: " + retrieved);
+    if (typeof(retrieved) != null) {
+    console.log("Got list from local storage. Expunging posts from the following users: " + retrieved);
 	kill(retrieved);
+}
+else console.log("No users stored, so doing nothing.");
 });
 
 

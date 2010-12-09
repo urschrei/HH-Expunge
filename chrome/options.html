@@ -39,11 +39,11 @@
 	// save value of the "users" field to local storage
 	function save_users(form) {
 		var usrs = form.users.value;
-		if (typeof(users) == "undefined") {
+		if (typeof(usrs) == "undefined") {
 			return;
 		}
 		localStorage["expunge_users"] = usrs;
-		alert("Saved the following users: " + usrs);
+		alert("Stored the following users: " + usrs);
 	}
 	function clear_users(form) {
 		localStorage.removeItem("expunge_users");
@@ -59,7 +59,7 @@
 	</script>
 	<body onload="restore_users()">
 		<div id="content">
-			<p class="instructions">Enter users you wish to ignore in the form below. [h]</p>
+			<p class="instructions">Enter users you wish to ignore in the box below. [h]</p>
 			<form name="store_users">
 				<label for="users">Users' names:</label>
 				<p><input name="users" placeholder="user1,user2,user3..." required autofocus></p>
