@@ -1,6 +1,7 @@
 {
   "name": "HH-Expunge",
   "version": "1.0",
+  "homepage_url": "https://github.com/urschrei/HH-Expunge",
   "icons": { "48": "Icon.png"},
   "description": "Expunges HumHum posts from users you wish to ignore",
   "background_page": "background.html",

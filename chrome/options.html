@@ -12,7 +12,6 @@
 	width: 420px; 
 	border: 1px solid;
 	color: #545454;
-	font-size: 10px;
 	}
 	label
 	{
@@ -44,10 +43,13 @@
 		}
 		localStorage["expunge_users"] = usrs;
 		alert("Stored the following users: " + usrs);
+		this.window.close();
 	}
 	function clear_users(form) {
 		localStorage.removeItem("expunge_users");
 		store_users.users.value = null;
+		alert("All users cleared. You're no longer ignoring anyone. Pathetic.");
+		this.window.close();
 	}
 	function restore_users() {
 		var users = localStorage["expunge_users"];
