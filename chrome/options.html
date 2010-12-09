@@ -1,23 +1,66 @@
 <html>
 <head><title>HumHum User Expunge Options</title></head>
+<style>
+    body 
+    { 
+        min-width: 420px; 
+        overflow-x: hidden; 
+        font-family: Helvetica, Arial, sans-serif; 
+        font-size: 12px; 
+    }
+    input, textarea { 
+	width: 420px; 
+	border: 1px solid;
+	color: #545454;
+	}
+	label
+	{
+	width: 125px;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block
+	color: #545454;
+	}
+	.submit input
+	{
+	margin-left: 130px;
+	border: 1px solid;
+	width: auto;
+	color: #545454;
+	}
+	.instructions {
+		margin-left: 130px;
+	}
+</style>
 	<script type="text/javascript">
 	// save value of the "users" field to local storage
 	function save_users(form) {
 		var usrs = form.users.value;
 		localStorage["expunge_users"] = usrs;
-		alert("Saved the following users:" + usrs);
+		alert("Saved the following users: " + usrs);
+	}
+	function clear_users(form) {
+		localStorage.removeItem("expunge_users");
+		store_users.users.value = null;
 	}
 	function restore_users() {
 		var users = localStorage["expunge_users"];
+		if (typeof(users) == "undefined") {
+			users = null;
+		}
 		store_users.users.value = users;
 	}
 	</script>
 	<body onload="restore_users()">
 		<div id="content">
+			<p class="instructions">Enter users you wish to ignore in the form below. [h]</p>
 			<form name="store_users">
-				<label for="users">Users' names</label>
-				<input name="users" placeholder="user1,user2,user3…" required autofocus>
-				<input type="button" value="save" onClick="save_users(this.form)">
+				<label for="users">Users' names:</label>
+				<p><input name="users" placeholder="user1,user2,user3..." required autofocus></p>
+				<p class="submit"><input type="button" value="save" onClick="save_users(this.form)">
+				<input type="button" value="clear" onClick="clear_users(this.form)">
+				</p>
 				</form>
 				</div>
 				</body>
