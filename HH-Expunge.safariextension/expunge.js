@@ -26,10 +26,11 @@ function storeBlacklist(bl) {
 		try {
 			localStorage.setItem("ignorelist", bl);
 		} catch(e) {
-			console.log("Couldn't write local storage item. I think this\
-			is a bug, and am proceeding with ignored-user comment removal anyway.");
+			console.log("Couldn't write local storage item. I think this \
+is a bug, and am proceeding with ignored-user comment removal anyway.");
 			localStorage.clear();
 			kill(bl);
+			return;
 		}
 
 		kill(bl);
@@ -47,9 +48,9 @@ function storeBlacklist(bl) {
 		kill(kl);
 	} else
 	//no stored values were found, and the default is in use, so alert the user
-	alert("You haven't defined any users to ignore, please go to the HumHum\
-	User Ignore extension preferences,\
-	and add some (use lowercase for user names).");
+	alert("You haven't defined any users to ignore, please go to the HumHum \
+User Ignore extension preferences,\
+and add some (use lowercase for user names).");
 
 }
 
