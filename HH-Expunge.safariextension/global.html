@@ -23,10 +23,10 @@
 				safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("settingValueIs", value);
 			}
 			else if (messageEvent.name == "setSettingValue") {
-			var tmp = messageEvent.message;
-			tmp = tmp.trim();
-			tmp = tmp.split('?'); //using ? as a delimiter
-			safari.extension.settings.setItem(tmp[0], tmp[1]);
+				var tmp = messageEvent.message;
+				tmp = tmp.trim();
+				tmp = tmp.split('?'); //using ? as a delimiter
+				safari.extension.settings.setItem(tmp[0], tmp[1]);
 			}
 			else return; //unknown message, do nothing
 		}
