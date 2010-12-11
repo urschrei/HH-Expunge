@@ -1,14 +1,25 @@
-<script>
-//add a trim method to the string object's prototype
-String.prototype.trim = function() {
-  return this.replace(/^\s+|\s+$/g, "");
-};
-
-chrome.extension.onRequest.addListener(
-	function(request, sender, sendResponse) {
-		if (request.localstorage == "expunge_users")
-		sendResponse({expunge_users: localStorage.expunge_users});
-		else
-		sendResponse({});
-		});
-</script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="HH-Expunge background HTML">
+		<title>
+			Background
+		</title>
+		<script type="text/javascript">
+		//add a trim method to the string object's prototype
+		String.prototype.trim = function() {
+		  return this.replace(/^\s+|\s+$/g, "");
+		};
+		chrome.extension.onRequest.addListener(
+			function(request, sender, sendResponse) {
+				if (request.localstorage == "expunge_users")
+				sendResponse({expunge_users: localStorage.expunge_users});
+				else
+				sendResponse({});
+				});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
