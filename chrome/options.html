@@ -1,81 +1,81 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Options for the HH-Expunge Chrome extension">
-		<title>
-			HumHum User Expunge Options
-		</title>
-		<style type="text/css">
-		body {
-		min-width : 420px;
-		font-family : Helvetica, sans-serif;
-		font-size : 10px;
-		}
-		input, textarea {
-		width : 420px;
-		border : 1px solid;
-		color : #545454;
-		}
-		label {
-		width : 125px;
-		float : left;
-		text-align : right;
-		margin-right : 0.5em;
-		display : block;
-		color : #545454;
-		}
-		.submit input {
-		margin-left : 130px;
-		border : 1px solid #ff3399;
-		width : auto;
-		color : #545454;
-		margin-right : -100px;
-		}
-		.instructions {
-		margin-left : 130px;
-		}
-		</style>
-		<script type="text/javascript">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Options for the HH-Expunge Chrome extension">
+        <title>
+            HumHum User Expunge Options
+        </title>
+        <style type="text/css">
+        body {
+        min-width : 420px;
+        font-family : Helvetica, sans-serif;
+        font-size : 10px;
+        }
+        input, textarea {
+        width : 420px;
+        border : 1px solid;
+        color : #545454;
+        }
+        label {
+        width : 125px;
+        float : left;
+        text-align : right;
+        margin-right : 0.5em;
+        display : block;
+        color : #545454;
+        }
+        .submit input {
+        margin-left : 130px;
+        border : 1px solid #ff3399;
+        width : auto;
+        color : #545454;
+        margin-right : -100px;
+        }
+        .instructions {
+        margin-left : 130px;
+        }
+        </style>
+        <script type="text/javascript">
 // save value of the "users" field to local storage
-		function save_users(form) {
-		var usrs = form.users.value;
-		if (typeof(usrs) == "undefined") {
-			return;
-		}
-		localStorage["expunge_users"] = usrs;
-		alert("Stored the following users: " + usrs);
-		this.window.close();
-		}
-		function clear_users(form) {
-		localStorage.removeItem("expunge_users");
-		store_users.users.value = null;
-		alert("All users cleared. You're no longer ignoring anyone. Pathetic.");
-		this.window.close();
-		}
-		function restore_users() {
-		var users = localStorage["expunge_users"];
-		if (typeof(users) == "undefined") {
-			users = null;
-		}
-		store_users.users.value = users;
-		}
-		</script>
-	</head>
-	<body onload="restore_users()">
-		<div id="content">
-			<p class="instructions">
-				Enter users you wish to ignore in the box below. [h]
-			</p>
-			<form name="store_users" id="store_users">
-				<label for="users">Users' names:</label>
-				<p>
-					<input id="users" placeholder="user1,user2,user3…" autofocus required>
-				</p>
-				<p class="submit">
-					<input type="submit" value="save users" onclick="save_users(this.form)"> <input type="button" value="clear all users" onclick="clear_users(this.form)">
-				</p>
-			</form>
-		</div>
-	</body>
+        function save_users(form) {
+        var usrs = form.users.value;
+        if (typeof(usrs) == "undefined") {
+            return;
+        }
+        localStorage["expunge_users"] = usrs;
+        alert("Stored the following users: " + usrs);
+        this.window.close();
+        }
+        function clear_users(form) {
+        localStorage.removeItem("expunge_users");
+        store_users.users.value = null;
+        alert("All users cleared. You're no longer ignoring anyone. Pathetic.");
+        this.window.close();
+        }
+        function restore_users() {
+        var users = localStorage["expunge_users"];
+        if (typeof(users) == "undefined") {
+            users = null;
+        }
+        store_users.users.value = users;
+        }
+        </script>
+    </head>
+    <body onload="restore_users()">
+        <div id="content">
+            <p class="instructions">
+                Enter users you wish to ignore in the box below. [h]
+            </p>
+            <form name="store_users" id="store_users">
+                <label for="users">Users' names:</label>
+                <p>
+                    <input id="users" placeholder="user1,user2,user3…" autofocus required>
+                </p>
+                <p class="submit">
+                    <input type="submit" value="save users" onclick="save_users(this.form)"> <input type="button" value="clear all users" onclick="clear_users(this.form)">
+                </p>
+            </form>
+        </div>
+    </body>
 </html>
