@@ -1,34 +1,14 @@
 # General #
 
-This is the source code for the **HumHum Ignore User** Safari 5 extension.  If you're just looking for the binary in order to install and use it, go to the [downloads page](http://github.com/urschrei/HH-Expunge/downloads "Downloads").
+This is the source code for the **HumHum Ignore User** Safari 5 and Google Chrome extensions. If you're just looking for the binaries in order to install and use them, go to the [downloads page](http://github.com/urschrei/HH-Expunge/downloads "Downloads").
 
 *Please note that you will require a Safari Developer cert in order to build the extension from source using the Safari Extension Builder, and that **it must be installed in Safari before you can proceed**. This does not apply if you just want to install the extension (binary).*
 
-In order to obtain a cert, you must:
-
-1. sign up to the developer program (free), [here](http://developer.apple.com/programs/start/safari/create.php "Apple Developer link")
-2. request a Safari extension certificate (free), [here](https://developer.apple.com/safari/certificates/index.action "Apple Developer link")
-3. install the cert using Keychain Assistant, by following the instructions above
-
-An introduction to Safari 5 extensions, and a comprehensive developer guide can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009977-CH1-SW1 "developer.apple.com link")
-
-Before using these source files with the Safari Extension Builder, please be aware that they must be placed into a directory with a name ending in .safariextension, e.g.:
-
-* meerkat.safariextension  **⬅ Directory** 
-	* `global.html`
-	* `global.js`
-	* `expunge.js`
-	* `Settings.plist`
-	* `Info.plist`
-	* `Icon.png`
-
-An explanation of the extension "parts list" and architecture can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/ExtensionsOverview/ExtensionsOverview.html#//apple_ref/doc/uid/TP40009977-CH15-SW3 "Apple Developer Link")  
-The `update.plist` file is an update manifest which triggers Safari's Extension Update mechanism. Details pertaining to its use can be found [here](http://developer.apple.com/safari/library/documentation/Tools/Conceptual/SafariExtensionGuide/UpdatingExtensions/UpdatingExtensions.html#//apple_ref/doc/uid/TP40009977-CH12-SW1 "Apple Developer Doc"). I have no idea whether it works, or what the update check interval is, however.  
-
 # What this extension does #
 
-When a thread is loaded, the `expunge.js` script requests the contents of the "blacklist" user setting field by passing a message to the `global.js` script (loaded by `global.html`), splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread.  
-As of **v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the `global.js` script) when the extension is updated, so your settings will persist. In addition, various actions are written to the Javascript console.
+When a thread is loaded, the background HTML page requests the contents of the "users" setting, and passes the result back to the injected script, which splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread.
+
+As of **Safari extension v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the global.html page) when the extension is updated, so your settings will persist. In addition, various actions are written to the Javascript console.
 
 **please add usernames in lowercase**
 
@@ -36,7 +16,7 @@ As of **v1.3**, the "blacklist" setting is written to local storage upon every p
 
 ## Addendum ##
 
-I'm pretty sure there's a bug in the current implementation of Safari 5's HTML 5 local storage functionality. It's not a show-stopper – it's preventing the list of ignored users being written to offline storage after a certain number of writes – but it's sufficiently irritating for me to detail here. The error console is your friend, if you're wondering what's going on.
+I'm pretty sure there's a bug in the current implementation of Safari 5's HTML5 local storage functionality. It's not a show-stopper – it's preventing the list of ignored users being written to offline storage after a certain number of writes – but it's sufficiently irritating for me to detail here. The error console is your friend, if you're wondering what's going on.
 
 
 
