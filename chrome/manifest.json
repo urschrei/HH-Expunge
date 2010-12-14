@@ -20,5 +20,5 @@
   "http://www.humhum.be/*",
   "http://humhum.be/*"
   ],
-  "update_url": "http://github.com/urschrei/HH-expunge/blob/master/chrome/updates.xml"
+  "update_url": "http://github.com/downloads/urschrei/HH-Expunge/updates.xml"
 }
