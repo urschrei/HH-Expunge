@@ -13,8 +13,13 @@
         };
         chrome.extension.onRequest.addListener(
             function(request, sender, sendResponse) {
-                if (request.localstorage == "expunge_users")
+                if (request.localstorage == "expunge_users") {
                 sendResponse({expunge_users: localStorage.expunge_users});
+            }
+            else if (request.hit == true) {
+                chrome.pageAction.show(sender.tab.id);
+                //chrome.PageAction.setTitle({title: "blah", tabId: sender.tab.id});
+            }
                 else
                 sendResponse({});
                 });

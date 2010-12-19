@@ -1,6 +1,6 @@
 {
   "name": "HH-Expunge",
-  "version": "1.0",
+  "version": "1.1",
   "homepage_url": "https://github.com/urschrei/HH-Expunge",
   "icons": { "48": "Icon.png"},
   "description": "Expunges HumHum posts from users you wish to ignore",
@@ -20,5 +20,9 @@
   "http://www.humhum.be/*",
   "http://humhum.be/*"
   ],
+  "page_action": {
+    "default_icon": "Icon_19px.png", // required
+    "default_title": "Posts on this page have been hidden"
+  },
   "update_url": "http://github.com/downloads/urschrei/HH-Expunge/updates.xml"
 }
