@@ -8,69 +8,69 @@
         </title>
         <style type="text/css">
         body {
-        min-width : 420px;
-        font-family : Helvetica, sans-serif;
-        font-size : 10px;
+            min-width : 420px;
+            font-family : Helvetica, sans-serif;
+            font-size : 10px;
         }
         input, textarea {
-        width : 420px;
-        border : 1px solid;
-        color : #545454;
+            width : 420px;
+            border : 1px solid;
+            color : #545454;
         }
         label {
-        width : 125px;
-        float : left;
-        text-align : right;
-        margin-right : 0.5em;
-        display : block;
-        color : #545454;
+            width : 125px;
+            float : left;
+            text-align : right;
+            margin-right : 0.5em;
+            display : block;
+            color : #545454;
         }
         .submit input {
-        margin-left : 130px;
-        border : 1px solid #ff3399;
-        width : auto;
-        color : #545454;
-        margin-right : -100px;
+            margin-left : 130px;
+            border : 1px solid #ff3399;
+            width : auto;
+            color : #545454;
+            margin-right : -100px;
         }
         .instructions {
-        margin-left : 130px;
+            margin-left : 130px;
         }
         </style>
         <script type="text/javascript">
 // save value of the "users" field to local storage
         function save_users(form) {
-        var usrs = form.users.value;
-        if (typeof(usrs) == "undefined") {
-            return;
-        }
-        if (localStorage["expunge_users"] != usrs) {
-        localStorage["expunge_users"] = usrs;
-        alert("Stored the following users: " + usrs);
-        }
-        if (form.iconpref.checked) {
-            localStorage["show_icon"] = true;
-        }
-        else {
-            localStorage["show_icon"] = false;
-        }
-        this.window.close();
+            var usrs = form.users.value;
+            if (typeof(usrs) == "undefined") {
+                return;
+            }
+            if (localStorage["expunge_users"] != usrs) {
+                localStorage["expunge_users"] = usrs;
+                alert("Stored the following users: " + usrs);
+            }
+            if (form.iconpref.checked) {
+                localStorage["show_icon"] = true;
+            }
+            else {
+                localStorage["show_icon"] = false;
+            }
+            this.window.close();
         }
         function clear_users(form) {
-        localStorage.removeItem("expunge_users");
-        store_users.users.value = null;
-        alert("All users cleared. You're no longer ignoring anyone. Pathetic.");
-        this.window.close();
+            localStorage.removeItem("expunge_users");
+            store_users.users.value = null;
+            alert("All users cleared. You're no longer ignoring anyone. Pathetic.");
+            this.window.close();
         }
         function restore_users() {
-        var users = localStorage["expunge_users"];
-        if (typeof(users) == "undefined") {
-            users = null;
-        }
-        store_users.users.value = users;
-        // local storage can't do real boolean values
-        if (localStorage["show_icon"] == "true") {
-            store_users.iconpref.checked = true;
-        }
+            var users = localStorage["expunge_users"];
+            if (typeof(users) == "undefined") {
+                users = null;
+            }
+            store_users.users.value = users;
+            // local storage can't do real boolean values
+            if (localStorage["show_icon"] == "true") {
+                store_users.iconpref.checked = true;
+            }
         }
         </script>
     </head>
