@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Author</key>
-	<string>steph</string>
+	<string>Stephan Hügel</string>
 	<key>CFBundleDisplayName</key>
 	<string>HumHum User Ignore</string>
 	<key>CFBundleIdentifier</key>
@@ -47,5 +47,7 @@
 	</dict>
 	<key>Update Manifest URL</key>
 	<string>http://github.com/downloads/urschrei/HH-Expunge/update.plist</string>
+	<key>Website</key>
+	<string>https://github.com/urschrei</string>
 </dict>
 </plist>
