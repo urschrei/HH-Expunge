@@ -42,9 +42,10 @@ function kill(users) {
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
         null);
-    console.log("Number of comments expunged: " + allTables.snapshotLength);
-    if (allTables.snapshotLength > 0) {
-        chrome.extension.sendRequest({hit: true});
+        sl = allTables.snapshotLength;
+    console.log("Number of comments expunged: " + sl);
+    if (sl > 0) {
+        chrome.extension.sendRequest({hit: sl});
     }
     for (var j = 0; j < allTables.snapshotLength; j++) {
         thisTable = allTables.snapshotItem(j);
