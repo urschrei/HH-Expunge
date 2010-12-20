@@ -16,7 +16,7 @@
                 if (request.localstorage == "expunge_users") {
                 sendResponse({expunge_users: localStorage.expunge_users});
             }
-            else if (request.hit > 0) {
+            else if (request.hit > 0 && localStorage.show_icon == "true") {
                 chrome.pageAction.show(sender.tab.id);
                 chrome.pageAction.setTitle({tabId: sender.tab.id, title: request.hit + " posts expunged"});
             }

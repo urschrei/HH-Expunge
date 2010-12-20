@@ -43,8 +43,16 @@
         if (typeof(usrs) == "undefined") {
             return;
         }
+        if (localStorage["expunge_users"] != usrs) {
         localStorage["expunge_users"] = usrs;
         alert("Stored the following users: " + usrs);
+        }
+        if (form.iconpref.checked) {
+            localStorage["show_icon"] = true;
+        }
+        else {
+            localStorage["show_icon"] = false;
+        }
         this.window.close();
         }
         function clear_users(form) {
@@ -59,21 +67,29 @@
             users = null;
         }
         store_users.users.value = users;
+        // local storage can't do real boolean values
+        if (localStorage["show_icon"] == "true") {
+            store_users.iconpref.checked = true;
+        }
         }
         </script>
     </head>
     <body onload="restore_users()">
         <div id="content">
             <p class="instructions">
-                Enter users you wish to ignore in the box below. [h]
+                Enter the user names you wish to ignore in the box below. [h]
             </p>
             <form name="store_users" id="store_users">
                 <label for="users">Users' names:</label>
                 <p>
                     <input id="users" placeholder="user1,user2,user3…" autofocus required>
                 </p>
+                <p class="instructions">
+                    Display a small address bar icon when posts are removed from a thread?
+                    <input id="iconpref" type="checkbox">
+                </p>
                 <p class="submit">
-                    <input type="submit" value="save users" onclick="save_users(this.form)"> <input type="button" value="clear all users" onclick="clear_users(this.form)">
+                    <input type="submit" value="save" onclick="save_users(this.form)"> <input type="button" value="clear all users" onclick="clear_users(this.form)">
                 </p>
             </form>
         </div>
