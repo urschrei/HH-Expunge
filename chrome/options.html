@@ -14,16 +14,13 @@
         }
         input, textarea {
             width : 420px;
+            margin-left: 130px;
             border : 1px solid;
             color : #545454;
         }
         label {
-            width : 125px;
-            float : left;
-            text-align : right;
-            margin-right : 0.5em;
-            display : block;
             color : #545454;
+            margin-left: -400px;
         }
         .submit input {
             margin-left : 130px;
@@ -34,6 +31,13 @@
         }
         .instructions {
             margin-left : 130px;
+            color : #545454;
+        }
+        .pink {
+            color: #ff3399;
+        }
+        .cb_margin_fix {
+            margin-left: 126px;
         }
         </style>
         <script type="text/javascript">
@@ -77,16 +81,15 @@
     <body onload="restore_users()">
         <div id="content">
             <p class="instructions">
-                Enter the user names you wish to ignore in the box below. [h]
+                Enter the user names you wish to ignore in the box below, separated by a comma. [<span class="pink">h</span>]
             </p>
             <form name="store_users" id="store_users">
-                <label for="users">Users' names:</label>
                 <p>
                     <input id="users" placeholder="user1,user2,user3…" autofocus required>
                 </p>
-                <p class="instructions">
-                    Display a small address bar icon when posts are removed from a thread?
-                    <input id="iconpref" type="checkbox">
+                <p>
+                    <input id="iconpref" class="cb_margin_fix" type="checkbox">
+                    <label for="iconpref">Display a small address bar icon in threads containing expunged posts</label>
                 </p>
                 <p class="submit">
                     <input type="submit" value="save" onclick="save_users(this.form)"> <input type="button" value="clear all users" onclick="clear_users(this.form)">
