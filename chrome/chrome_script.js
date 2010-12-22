@@ -13,9 +13,24 @@ chrome.extension.sendRequest({localstorage: "expunge_users"}, function(response)
 else console.log("No users stored, so doing nothing.");
 });
 
+// optional toggle functionality
+chrome.extension.onRequest.addListener(
+    function(request, sender, sendResponse) {
+        if (request.show == "true") {
+            for (var r = 0; r < allTables.snapshotLength; r++) {
+                fullTable = allTables.snapshotItem(r);
+                if (fullTable.style.display == 'none') {
+                    fullTable.style.display = 'block';
+                }
+                else if (fullTable.style.display == 'block') {
+                    fullTable.style.display = 'none';
+                }
+        sendResponse({});
+    }}
+});
+
 
 function kill(users) {
-    var allTables, thisTable, matchTable;
     var users_arr = users.split(",");
     for (i = 0; i < users_arr.length; i++) {
         //force the user input to lowercase
@@ -49,7 +64,6 @@ function kill(users) {
     }
     for (var j = 0; j < allTables.snapshotLength; j++) {
         thisTable = allTables.snapshotItem(j);
-        thisTable.parentNode.removeChild(thisTable);
-        //not hidden, expunged. That's right.
+        thisTable.style.display = 'none';
     }
 }

@@ -18,11 +18,14 @@
             }
             else if (request.hit > 0 && localStorage.show_icon == "true") {
                 chrome.pageAction.show(sender.tab.id);
-                chrome.pageAction.setTitle({tabId: sender.tab.id, title: request.hit + " posts expunged"});
+                chrome.pageAction.setTitle({tabId: sender.tab.id, title: request.hit + " posts expunged, click to toggle"});
             }
                 else
                 sendResponse({});
                 });
+        chrome.pageAction.onClicked.addListener(function(tab) {
+            chrome.tabs.sendRequest(tab.id, {show: "true"}, function(response) {});
+            });
         </script>
     </head>
     <body>
