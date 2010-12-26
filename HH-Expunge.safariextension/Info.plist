@@ -46,7 +46,7 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://github.com/downloads/urschrei/HH-Expunge/update.plist</string>
+	<string>https://github.com/downloads/urschrei/HH-Expunge/update.plist</string>
 	<key>Website</key>
 	<string>https://github.com/urschrei</string>
 </dict>

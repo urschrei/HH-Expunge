@@ -21,8 +21,8 @@
   "http://humhum.be/*"
   ],
   "page_action": {
-    "default_icon": "Icon_19px.png", // required
+    "default_icon": "Icon_19px.png",
     "default_title": "Posts on this page have been hidden"
   },
-  "update_url": "http://github.com/downloads/urschrei/HH-Expunge/updates.xml"
+  "update_url": "https://github.com/downloads/urschrei/HH-Expunge/updates.xml"
 }
