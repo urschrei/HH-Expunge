@@ -62,8 +62,8 @@ function kill(users) {
     for (i = 0; i < users_arr.length; i++) {
         //force the user input to lowercase
         users_arr[i] = users_arr[i].replace(" ","%2b").toLowerCase();
-        if (users_arr[i] == "giant%2bhamburger") {
-            //you must be joking
+        // Allow for trailing commas
+        if (users_arr[i] == "giant%2bhamburger" || "") {
             users_arr.splice(i,1);
         }
     }
