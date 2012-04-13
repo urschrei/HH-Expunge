@@ -2,15 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <dict>
-        <key>DefaultValue</key>
-        <string>user1,user2,user3</string>
-        <key>Key</key>
-        <string>blacklist</string>
-        <key>Title</key>
-        <string>Enter the user names you wish to ignore</string>
-        <key>Type</key>
-        <string>TextField</string>
-    </dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>user1,user2,user3</string>
+		<key>Key</key>
+		<string>blacklist</string>
+		<key>Title</key>
+		<string>Enter the user names you wish to ignore</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>showable</string>
+		<key>Title</key>
+		<string>Option to show trollposts?</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
 </array>
 </plist>

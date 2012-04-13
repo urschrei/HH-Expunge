@@ -3,22 +3,29 @@ String.prototype.trim = function() {
     return this.replace(/^\s+|\s+$/g, "");
 };
 
-safari.self.addEventListener("message", getMessage, false);
+var showable;
+
 // event listener for incoming requested messages from global.js
+safari.self.tab.dispatchMessage("getShowableValue", "showable");
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
+
+
 // ask for value from global.js, since only it can interact with the Safari object directly
 function getMessage(msgEvent) {
-
-    if (msgEvent.name == "settingValueIs") retrieved = msgEvent.message;
-    storeBlacklist(retrieved);
+    if (msgEvent.name == "showableValueIs"){
+        showable = msgEvent.message;
+    }else if(msgEvent.name == "settingValueIs"){
+        retrieved = msgEvent.message;
+        storeBlacklist(retrieved);
+    }
 }
 
-
+safari.self.addEventListener("message", getMessage, false);
 
 function storeBlacklist(bl) {
     if ("user1,user2,user3" != bl) {
-        console.log("Writing user-defined blacklist values to local storage");
-        console.log("Values: " + bl);
+        // console.log("Writing user-defined blacklist values to local storage");
+        // console.log("Values: " + bl);
         bl = bl.trim();
         //strip leading and trailing whitespace
         localStorage.clear();
@@ -38,11 +45,11 @@ is a bug, and am proceeding with ignored-user comment removal anyway.");
     // default values present: extension is in use for the first time, or post-update
     if (localStorage.getItem("ignorelist")) {
         //stored values exist, so use those, and restore them to the user prefs
-        console.log("Retrieving local storage blacklist values: ");
+        // console.log("Retrieving local storage blacklist values: ");
         kl = localStorage.getItem("ignorelist");
         kl = kl.trim();
         //strip leading and trailing whitespace
-        console.log("Retrieved values: " + kl + " … restoring your preferences");
+        // console.log("Retrieved values: " + kl + " … restoring your preferences");
         safari.self.tab.dispatchMessage("setSettingValue", "blacklist?" + kl);
         //using ? to delimit in order to avoid splitting the values
         kill(kl);
@@ -84,10 +91,37 @@ function kill(users) {
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
         null);
-    console.log("Number of comments expunged: " + allTables.snapshotLength);
+    // console.log("Number of comments expunged: " + allTables.snapshotLength);
     for (var j = 0; j < allTables.snapshotLength; j++) {
         thisTable = allTables.snapshotItem(j);
-        thisTable.parentNode.removeChild(thisTable);
-        //not hidden, expunged. That's right.
+        if(!showable){
+            thisTable.parentNode.removeChild(thisTable);
+            //not hidden, expunged. That's right.
+        }else{
+            // just hidden :(
+            var trollPost = thisTable.firstChild.firstChild;
+            trollPost.style.display = 'none';
+            trollPost.style.border = "1px dotted #ccc";
+            trollPost.id = "hidden_" + j;
+            var temp = thisTable.insertRow(0);
+            temp.setAttribute("data-target", "hidden_" + j);
+            temp.style.width = "100%";
+            temp.style.fontFamily = "sans-serif";
+            temp.style.fontSize = "9px";
+            temp.style.padding = "2px 6px";
+            temp.style.margin = "1px 0px";
+            temp.style.cursor = "pointer";
+            temp.style.backgroundColor = "#eee";
+            temp.innerHTML = '<td colspan="2" style="padding:2px 4px">trollpost</td>'; // soz
+
+            temp.onclick = function(){
+                var targ = document.getElementById(this.getAttribute('data-target'));
+                if(targ.style.display == 'block'){
+                    targ.style.display = 'none';
+                }else{
+                    targ.style.display = 'block';
+                }
+            }
+        }
     }
 }
