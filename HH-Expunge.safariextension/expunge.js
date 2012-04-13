@@ -9,7 +9,6 @@ var showable;
 safari.self.tab.dispatchMessage("getShowableValue", "showable");
 safari.self.tab.dispatchMessage("getSettingValue", "blacklist");
 
-
 // ask for value from global.js, since only it can interact with the Safari object directly
 function getMessage(msgEvent) {
     if (msgEvent.name == "showableValueIs"){
@@ -91,7 +90,7 @@ function kill(users) {
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
         null);
-    // console.log("Number of comments expunged: " + allTables.snapshotLength);
+        console.log("Number of comments expunged: " + allTables.snapshotLength);
     for (var j = 0; j < allTables.snapshotLength; j++) {
         thisTable = allTables.snapshotItem(j);
         if(!showable){

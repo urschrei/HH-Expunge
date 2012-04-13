@@ -13,6 +13,11 @@
         };
         //wait for messages from expunge.js
         safari.application.addEventListener("message", respondToMessage, false);
+        // Safari 5.1 and above, activate even fires for tabs opened in background, yay!
+        if(SafariActivateEvent){
+            safari.application.addEventListener("activate", respondToMessage, false);
+        }
+
         // getter and setter function for settings used by expunge.js
         function respondToMessage(messageEvent) {
             if (messageEvent.name == "getSettingValue") {
@@ -20,11 +25,11 @@
                 var value = safari.extension.settings.getItem(messageEvent.message);
                 value = value.trim();
                 // return value of foo to expunge.js
-                safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("settingValueIs", value);
+                messageEvent.target.page.dispatchMessage("settingValueIs", value);
             }
             else if (messageEvent.name == "getShowableValue") {
                 var value = safari.extension.settings.getItem(messageEvent.message);
-                safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("showableValueIs", value);
+                messageEvent.target.page.dispatchMessage("showableValueIs", value);
             }
             else if (messageEvent.name == "setSettingValue") {
                 var tmp = messageEvent.message;
