@@ -4,10 +4,6 @@ This is the source code for the **HumHum Ignore User** Safari 5 and Google Chrom
 
 *Please note that you will require a Safari Developer cert in order to build the extension from source using the Safari Extension Builder, and that **it must be installed in Safari before you can proceed**. This does not apply if you just want to install the extension (binary).*
 
-# What this extension does #
-
-When a thread is loaded, the background HTML page requests the contents of the "users" setting, and passes the result back to the injected script, which splits the result into an array, constructs an XPath query using the array elements, then builds an XPath snapshot whose nodes (made up of tables of the `threadTable` class) are removed (expunged), thus removing the users' (or user's, if you have chosen to ignore only one) comments from the thread.
-
 As of **Safari extension v1.3**, the "blacklist" setting is written to local storage upon every page load, and retrieved/restored (by passing it back to the global.html page) when the extension is updated, so your settings will persist. In addition, various actions are written to the Javascript console.
 
 **please add usernames in lowercase**
